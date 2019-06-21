@@ -25,9 +25,12 @@ export default class LogParser {
 	private static async getFileLogLines(filepath: string): Promise<string[]> {
 		let linesArray: string[] = [];
 
-		return new Promise(resolve => {
+		return new Promise((resolve, reject) => {
+			let readStream = fs.createReadStream(pathModule.resolve(filepath));
+			readStream.on('error', err => { reject(err) });
+
 			let readInterface = readline.createInterface({
-				input: fs.createReadStream(pathModule.resolve(filepath))
+				input: readStream
 			});
 
 			let firstLineIgnored = false;

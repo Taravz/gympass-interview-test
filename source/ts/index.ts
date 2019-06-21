@@ -1,7 +1,7 @@
 import Race from './Race';
 
 let race = new Race();
-race.loadFromLogFile('./test_logs/entrada_normadlizado.txt')
+race.loadFromLogFile('./test_logs/entrada_normalizado.txt')
 	.then(() => {
 		let ranking = race.getRanking();
 
@@ -14,4 +14,13 @@ race.loadFromLogFile('./test_logs/entrada_normadlizado.txt')
 
 			console.log(`${index + 1} - ${pilot.name.padEnd(33, ' ')} ${pilot.totalLaps} laps - ${timeString}`);
 		});
+	})
+	.catch((ex: any) => {
+		if (typeof ex.message === 'string') {
+			console.error(ex.message);
+		} else {
+			console.error(ex);
+		}
+
+		console.error('Failed to load race data. Please check the log file and try again');
 	});
