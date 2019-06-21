@@ -1,7 +1,9 @@
 import Race from './Race';
 
+let logFilePath = process.argv[2];
+
 let race = new Race();
-race.loadFromLogFile('./test_logs/entrada_normalizado.txt')
+race.loadFromLogFile(logFilePath)
 	.then(() => {
 		let ranking = race.getRanking();
 
