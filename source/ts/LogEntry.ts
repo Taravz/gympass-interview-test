@@ -2,7 +2,7 @@
  * Interface for objects containing the data of one line of a log file
  * @interface LogEntry
  */
-interface LogEntry {
+export default interface LogEntry {
 	hour: Date;
 	pilotId: number;
 	pilotName: string;

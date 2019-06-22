@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as pathModule from 'path';
 import * as readline from 'readline';
+import LogEntry from './LogEntry';
 
 /**
  * Static class containing methods to parse a race log file
