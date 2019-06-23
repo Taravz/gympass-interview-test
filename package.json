@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc & node source/builtJs/index.js ./test_logs/entrada_normalizado.txt"
+    "test": "tsc -p test/tsconfig.tests.json & mocha",
+    "start": "tsc -p source/tsconfig.main.json & node source/builtJs/index.js ./test_logs/entrada_normalizado.txt"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.0.8",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
     "typescript": "^3.5.2"
   }
 }
